@@ -26,6 +26,7 @@ string_xor(mrb_state *mrb, mrb_value self)
     mrb_raise(mrb, E_ARGUMENT_ERROR, "string length does not match");
   }
   s = mrb_str_dup(mrb, self);
+  mrb_str_modify(mrb, RSTRING(s));
   p = RSTRING_PTR(s);
   p2 = RSTRING_PTR(str2);
   pend = RSTRING_END(s);
